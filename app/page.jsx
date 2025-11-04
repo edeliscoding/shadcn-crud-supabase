@@ -4,8 +4,9 @@ import DataTable from '@/components/DataTable'
 import ItemForm from '@/components/ItemForm'
 
 export default async function Page({ searchParams }) {
-  const page = Number(searchParams.page) || 1
-  const search = searchParams.search || ''
+  const params = await searchParams;
+  const page = Number(params.page) || 1;
+  const search = params.search || '';
 
   const { data, totalPages } = await getItems({ page, search })
 
